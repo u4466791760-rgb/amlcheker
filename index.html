@@ -1,480 +1,329 @@
-// language.js
-document.addEventListener('DOMContentLoaded', function() {
-    // Словарь переводов для всех поддерживаемых языков
-    const translations = {
-        'ru': {
-            // Заголовок и мета-данные
-            'title': 'AMLCheker Scan | Продвинутая проверка AML крипто-кошельков',
-            'description': 'Профессиональная проверка AML соответствия для криптовалютных кошельков. Проверяйте чистоту кошельков, обнаруживайте подозрительную активность и обеспечивайте соответствие требованиям с нашей передовой технологией скрининга.',
-            
-            // Навигация
-            'features': 'Функции',
-            'how-it-works': 'Как это работает',
-            'faq': 'FAQ',
-            
-            // Hero секция
-            'hero-title': 'Продвинутая проверка AML кошельков',
-            'hero-subtitle': 'Защитите свои активы с профессиональным скринингом криптовалютных кошельков и проверкой соответствия',
-            'check-wallet': 'Проверить кошелек',
-            'connect-wallet': 'Подключить кошелек',
-            
-            // Features секция
-            'features-title': 'Комплексная безопасность кошельков',
-            'risk-scoring': 'Оценка риска',
-            'risk-scoring-desc': 'Продвинутые алгоритмы рассчитывают процент риска кошелька на основе истории транзакций и связей',
-            'source-analysis': 'Анализ источников',
-            'source-analysis-desc': 'Определяйте происхождение средств включая даркнет-маркеты, микшеры, мошенничества и санкционированные лица',
-            'real-time-monitoring': 'Мониторинг в реальном времени',
-            'real-time-monitoring-desc': 'Непрерывный мониторинг транзакций с мгновенными оповещениями о подозрительной активности',
-            
-            // How It Works
-            'how-it-works-title': 'Как работает скрининг кошельков',
-            'step1-title': 'Подключить кошелек',
-            'step1-desc': 'Безопасно подключите ваш криптовалютный кошелек используя предпочитаемого провайдера',
-            'step2-title': 'Глубокий анализ',
-            'step2-desc': 'Наша система сканирует историю транзакций и связи через множество блокчейнов',
-            'step3-title': 'Получить отчет',
-            'step3-desc': 'Получите детальную оценку рисков с четкими рекомендациями и статусом соответствия',
-            
-            // FAQ
-            'faq-title': 'Часто задаваемые вопросы',
-            'faq1-question': 'Что такое проверка AML для криптовалютных кошельков?',
-            'faq1-answer': 'Проверка AML (против отмывания денег) - это детальный анализ рисков криптовалютных кошельков и транзакций, который идентифицирует связи с незаконной деятельностью, такой как даркнет-маркеты, санкции, мошенничества и другие финансовые преступления. Это помогает определить чистоту активов и защититься от украденных монет.',
-            'faq2-question': 'Почему проверки AML важны для крипто-бизнеса?',
-            'faq2-answer': 'Проверки AML критически важны, потому что они предотвращают отмывание денег и финансирование терроризма, одновременно защищая ваш бизнес от эксплуатации злоумышленниками. Несоблюдение может привести к регуляторным штрафам, заморозке активов, репутационному ущербу и потере банковских отношений.',
-            'faq3-question': 'Что включает процесс проверки AML?',
-            'faq3-answer': 'Наш процесс AML включает: оценку риска, показывающую вероятность связей с незаконной деятельностью, анализ источников, идентифицирующий категории такие как микшеры и мошенничества, анализ связей, проверяющий историю транзакций, и анализ перспективы транзакций для входящих и исходящих платежей.',
-            'faq4-question': 'Кому нужно соответствие AML в криптовалюте?',
-            'faq4-answer': 'Биржи, кастодиальные кошельки, OTC-дески, брокеры, NFT и DeFi платформы, и любые провайдеры услуг виртуальных активов (VASP), которые обрабатывают транзакции или хранят клиентские активы, должны соответствовать регуляциям AML.',
-            'faq5-question': 'Насколько точна ваша проверка кошельков?',
-            'faq5-answer': 'Наша оценка риска основана на множестве источников данных и продвинутых алгоритмах, обеспечивая надежные данные для комплексного анализа. Мы предоставляем мгновенные проверки с глобальным покрытием, помогая идентифицировать риски в реальном времени.',
-            
-            // CTA секция
-            'cta-title': 'Готовы защитить свои активы?',
-            'cta-subtitle': 'Начните защищать свои криптовалютные инвестиции сегодня с профессиональным AML скринингом',
-            'check-now': 'Проверить ваш кошелек сейчас',
-            
-            // Футер
-            'footer': '© 2025 AMLCheker Scan. Все права защищены. Профессиональные решения AML соответствия.',
-            
-            // Модальное окно
-            'choose-wallet': 'Выберите ваш кошелек',
-            'trust-wallet': 'Trust Wallet',
-            'tronlink': 'TronLink',
-            'klever-wallet': 'Klever Wallet',
-            'mathwallet': 'MathWallet',
-            'safepal': 'SafePal',
-            'walletconnect': 'WalletConnect'
-        },
-        'es': {
-            'title': 'AMLCheker Scan | Verificación AML Avanzada de Carteras Cripto',
-            'description': 'Verificación profesional de cumplimiento AML para carteras de criptomonedas. Verifique la pureza de carteras, detecte actividad sospechosa y asegure el cumplimiento regulatorio con nuestra tecnología avanzada de screening.',
-            'features': 'Características',
-            'how-it-works': 'Cómo funciona',
-            'faq': 'Preguntas Frecuentes',
-            'hero-title': 'Verificación AML Avanzada de Carteras',
-            'hero-subtitle': 'Proteja sus activos con screening profesional de carteras de criptomonedas y verificación de cumplimiento',
-            'check-wallet': 'Verificar Cartera',
-            'connect-wallet': 'Conectar Cartera',
-            'features-title': 'Seguridad Integral de Carteras',
-            'risk-scoring': 'Puntuación de Riesgo',
-            'risk-scoring-desc': 'Algoritmos avanzados calculan el porcentaje de riesgo de la cartera basado en historial de transacciones y conexiones',
-            'source-analysis': 'Análisis de Fuentes',
-            'source-analysis-desc': 'Identifique orígenes de fondos incluyendo mercados darknet, mezcladores, estafas y entidades sancionadas',
-            'real-time-monitoring': 'Monitoreo en Tiempo Real',
-            'real-time-monitoring-desc': 'Monitoreo continuo de transacciones con alertas instantáneas para actividades sospechosas',
-            'how-it-works-title': 'Cómo funciona el Screening de Carteras',
-            'step1-title': 'Conectar Cartera',
-            'step1-desc': 'Conecte de forma segura su cartera de criptomonedas usando su proveedor preferido',
-            'step2-title': 'Análisis Profundo',
-            'step2-desc': 'Nuestro sistema escanea el historial de transacciones y conexiones a través de múltiples blockchains',
-            'step3-title': 'Obtener Reporte',
-            'step3-desc': 'Reciba evaluación de riesgos detallada con recomendaciones claras y estado de cumplimiento',
-            'faq-title': 'Preguntas Frecuentes',
-            'faq1-question': '¿Qué es una verificación AML para carteras de criptomonedas?',
-            'faq1-answer': 'Una verificación AML (Anti-Lavado de Dinero) es un análisis detallado de riesgo de carteras de criptomonedas y transacciones que identifica vínculos con actividades ilícitas como mercados darknet, sanciones, estafas y otros crímenes financieros. Ayuda a determinar la pureza de los activos y proteger contra monedas robadas.',
-            'faq2-question': '¿Por qué son importantes las verificaciones AML para negocios crypto?',
-            'faq2-answer': 'Las verificaciones AML son cruciales porque previenen el lavado de dinero y el financiamiento del terrorismo mientras protegen su negocio de ser explotado por actores maliciosos. El incumplimiento puede resultar en sanciones regulatorias, activos congelados, daño reputacional y pérdida de relaciones bancarias.',
-            'faq3-question': '¿Qué incluye el proceso de verificación AML?',
-            'faq3-answer': 'Nuestro proceso AML incluye: puntuación de riesgo mostrando probabilidad de conexiones con actividad ilícita, análisis de fuentes identificando categorías como mezcladores y fraudes, análisis de conexiones revisando historial de transacciones, y análisis de perspectiva de transacciones para pagos entrantes y salientes.',
-            'faq4-question': '¿Quién necesita cumplimiento AML en criptomonedas?',
-            'faq4-answer': 'Exchanges, carteras custodiales, desks OTC, brokers, plataformas NFT y DeFi, y cualquier proveedor de servicios de activos virtuales (VASP) que procese transacciones o mantenga activos de clientes deben cumplir con regulaciones AML.',
-            'faq5-question': '¿Qué tan preciso es su screening de carteras?',
-            'faq5-answer': 'Nuestra puntuación de riesgo se basa en múltiples fuentes de datos y algoritmos avanzados, asegurando que tenemos datos confiables para análisis integral. Proveemos verificaciones instantáneas con cobertura global, ayudando a identificar riesgos en tiempo real.',
-            'cta-title': '¿Listo para asegurar sus activos?',
-            'cta-subtitle': 'Comience a proteger sus inversiones en criptomonedas hoy con screening AML profesional',
-            'check-now': 'Verifique su cartera ahora',
-            'footer': '© 2025 AMLCheker Scan. Todos los derechos reservados. Soluciones profesionales de cumplimiento AML.',
-            'choose-wallet': 'Elija su cartera',
-            'trust-wallet': 'Trust Wallet',
-            'tronlink': 'TronLink',
-            'klever-wallet': 'Klever Wallet',
-            'mathwallet': 'MathWallet',
-            'safepal': 'SafePal',
-            'walletconnect': 'WalletConnect'
-        },
-        'tr': {
-            'title': 'AMLCheker Scan | Gelişmiş AML Kripto Cüzdan Doğrulama',
-            'description': 'Kripto para cüzdanları için profesyonel AML uyumluluk kontrolü. Cüzdan saflığını doğrulayın, şüpheli aktiviteyi tespit edin ve gelişmiş tarama teknolojimizle düzenleyici uyumu sağlayın.',
-            'features': 'Özellikler',
-            'how-it-works': 'Nasıl Çalışır',
-            'faq': 'SSS',
-            'hero-title': 'Gelişmiş AML Cüzdan Doğrulama',
-            'hero-subtitle': 'Profesyonel kripto para cüzdan taraması ve uyumluluk kontrolü ile varlıklarınızı koruyun',
-            'check-wallet': 'Cüzdanı Kontrol Et',
-            'connect-wallet': 'Cüzdanı Bağla',
-            'features-title': 'Kapsamlı Cüzdan Güvenliği',
-            'risk-scoring': 'Risk Skorlama',
-            'risk-scoring-desc': 'Gelişmiş algoritmalar, işlem geçmişi ve bağlantılara dayalı olarak cüzdan risk yüzdesini hesaplar',
-            'source-analysis': 'Kaynak Analizi',
-            'source-analysis-desc': 'Karanlık ağ pazarları, mikserler, dolandırıcılıklar ve yaptırımlı varlıklar dahil fon kaynaklarını belirleyin',
-            'real-time-monitoring': 'Gerçek Zamanlı İzleme',
-            'real-time-monitoring-desc': 'Şüpheli aktiviteler için anlık uyarılarla sürekli işlem izleme',
-            'how-it-works-title': 'Cüzdan Taraması Nasıl Çalışır',
-            'step1-title': 'Cüzdanı Bağla',
-            'step1-desc': 'Tercih ettiğiniz cüzdan sağlayıcısını kullanarak kripto para cüzdanınızı güvenle bağlayın',
-            'step2-title': 'Derin Analiz',
-            'step2-desc': 'Sistemimiz birden fazla blockchain üzerinde işlem geçmişini ve bağlantıları tarar',
-            'step3-title': 'Rapor Al',
-            'step3-desc': 'Net öneriler ve uyumluluk durumu ile detaylı risk değerlendirmesi alın',
-            'faq-title': 'Sık Sorulan Sorular',
-            'faq1-question': 'Kripto para cüzdanları için AML kontrolü nedir?',
-            'faq1-answer': 'Bir AML (Kara Para Aklamayı Önleme) kontrolü, karanlık ağ pazarları, yaptırımlar, dolandırıcılıklar ve diğer finansal suçlar gibi yasa dışı faaliyetlerle bağlantıları tanımlayan kripto para cüzdanları ve işlemlerinin detaylı bir risk analizidir. Varlıkların saflığını belirlemeye ve çalınan paralara karşı korunmaya yardımcı olur.',
-            'faq2-question': 'Kripto işletmeleri için AML kontrolleri neden önemlidir?',
-            'faq2-answer': 'AML kontrolleri kritiktir çünkü para aklamayı ve terör finansmanını önlerken işletinizin kötü niyetli aktörler tarafından sömürülmesini önler. Uyumsuzluk, düzenleyici cezalara, dondurulmuş varlıklara, itibar zararına ve bankacılık ilişkilerinin kaybına neden olabilir.',
-            'faq3-question': 'AML kontrol süreci neleri içerir?',
-            'faq3-answer': 'AML sürecimiz şunları içerir: yasa dışı faaliyet bağlantılarının olasılığını gösteren risk skorlama, mikserler ve dolandırıcılık gibi kategorileri tanımlayan kaynak analizi, işlem geçmişini inceleyen bağlantı analizi ve gelen ve giden ödemeler için işlem perspektifi analizi.',
-            'faq4-question': 'Kripto para biriminde kime AML uyumu gerekir?',
-            'faq4-answer': 'Borsalar, saklama cüzdanları, OTC masaları, brokerler, NFT ve DeFi platformları ve işlem işleyen veya müşteri varlıklarını tutan herhangi bir sanal varlık hizmeti sağlayıcısı (VASP) AML düzenlemelerine uyması beklenir.',
-            'faq5-question': 'Cüzdan taramanız ne kadar doğru?',
-            'faq5-answer': 'Risk skorlamamız, kapsamlı analiz için güvenilir verilere sahip olduğumuzdan emin olarak birden fazla veri kaynağına ve gelişmiş algoritmalara dayanır. Gerçek zamanlı olarak riskleri belirlemeye yardımcı olan küresel kapsama ile anlık kontroller sağlıyoruz.',
-            'cta-title': 'Varlıklarınızı güvence altına almaya hazır mısınız?',
-            'cta-subtitle': 'Profesyonel AML taraması ile kripto para yatırımlarınızı bugün korumaya başlayın',
-            'check-now': 'Cüzdanınızı Şimdi Kontrol Edin',
-            'footer': '© 2025 AMLCheker Scan. Tüm hakları saklıdır. Profesyonel AML uyum çözümleri.',
-            'choose-wallet': 'Cüzdanınızı Seçin',
-            'trust-wallet': 'Trust Wallet',
-            'tronlink': 'TronLink',
-            'klever-wallet': 'Klever Wallet',
-            'mathwallet': 'MathWallet',
-            'safepal': 'SafePal',
-            'walletconnect': 'WalletConnect'
-        },
-        'zh': {
-            'title': 'AMLCheker Scan | 高级AML加密货币钱包验证',
-            'description': '专业的加密货币钱包AML合规检查。使用我们的先进筛查技术验证钱包纯度，检测可疑活动并确保监管合规',
-            'features': '功能',
-            'how-it-works': '工作原理',
-            'faq': '常见问题',
-            'hero-title': '高级AML钱包验证',
-            'hero-subtitle': '通过专业的加密货币钱包筛查和合规检查保护您的资产',
-            'check-wallet': '检查钱包',
-            'connect-wallet': '连接钱包',
-            'features-title': '全面的钱包安全',
-            'risk-scoring': '风险评分',
-            'risk-scoring-desc': '基于交易历史和连接的高级算法计算钱包风险百分比',
-            'source-analysis': '来源分析',
-            'source-analysis-desc': '识别资金来源，包括暗网市场、混币器、诈骗和受制裁实体',
-            'real-time-monitoring': '实时监控',
-            'real-time-monitoring-desc': '持续交易监控，可疑活动即时警报',
-            'how-it-works-title': '钱包筛查如何工作',
-            'step1-title': '连接钱包',
-            'step1-desc': '使用您偏好的钱包提供商安全连接您的加密货币钱包',
-            'step2-title': '深度分析',
-            'step2-desc': '我们的系统扫描多个区块链上的交易历史和连接',
-            'step3-title': '获取报告',
-            'step3-desc': '接收详细的风险评估，包含明确的建议和合规状态',
-            'faq-title': '常见问题',
-            'faq1-question': '什么是加密货币钱包的AML检查？',
-            'faq1-answer': 'AML（反洗钱）检查是对加密货币钱包和交易的详细风险分析，识别与非法活动的联系，如暗网市场、制裁、诈骗和其他金融犯罪。它有助于确定资产纯度并防止被盗币。',
-            'faq2-question': '为什么AML检查对加密业务很重要？',
-            'faq2-answer': 'AML检查至关重要，因为它们防止洗钱和恐怖主义融资，同时保护您的业务免受恶意行为者利用。不合规可能导致监管处罚、资产冻结、声誉损害和银行关系损失。',
-            'faq3-question': 'AML检查过程包括什么？',
-            'faq3-answer': '我们的AML流程包括：显示与非法活动连接可能性的风险评分，识别混币器和欺诈等类别的来源分析，审查交易历史的连接分析，以及进出交易视角分析。',
-            'faq4-question': '谁需要在加密货币中进行AML合规？',
-            'faq4-answer': '交易所、托管钱包、OTC柜台、经纪人、NFT和DeFi平台，以及任何处理交易或持有客户资产的虚拟资产服务提供商（VASP）都应遵守AML法规。',
-            'faq5-question': '您的钱包筛查有多准确？',
-            'faq5-answer': '我们的风险评分基于多个数据源和高级算法，确保我们拥有可靠的数据进行全面分析。我们提供具有全球覆盖的即时检查，帮助实时识别风险。',
-            'cta-title': '准备好保护您的资产了吗？',
-            'cta-subtitle': '立即开始通过专业AML筛查保护您的加密货币投资',
-            'check-now': '立即检查您的钱包',
-            'footer': '© 2025 AMLCheker Scan。保留所有权利。专业AML合规解决方案。',
-            'choose-wallet': '选择您的钱包',
-            'trust-wallet': 'Trust Wallet',
-            'tronlink': 'TronLink',
-            'klever-wallet': 'Klever Wallet',
-            'mathwallet': 'MathWallet',
-            'safepal': 'SafePal',
-            'walletconnect': 'WalletConnect'
-        },
-        'ja': {
-            'title': 'AMLCheker Scan | 高度なAML暗号通貨ウォレット検証',
-            'description': '暗号通貨ウォレットのプロフェッショナルなAMLコンプライアンスチェック。当社の高度なスクリーニング技術でウォレットの純度を検証し、不審な活動を検出し、規制遵守を確保します',
-            'features': '機能',
-            'how-it-works': '仕組み',
-            'faq': 'よくある質問',
-            'hero-title': '高度なAMLウォレット検証',
-            'hero-subtitle': 'プロフェッショナルな暗号通貨ウォレットスクリーニングとコンプライアンスチェックで資産を保護',
-            'check-wallet': 'ウォレットをチェック',
-            'connect-wallet': 'ウォレットを接続',
-            'features-title': '包括的なウォレットセキュリティ',
-            'risk-scoring': 'リスクスコアリング',
-            'risk-scoring-desc': '高度なアルゴリズムが取引履歴と接続に基づいてウォレットのリスク率を計算',
-            'source-analysis': 'ソース分析',
-            'source-analysis-desc': 'ダークネット市場、ミキサー、詐欺、制裁対象エンティティを含む資金の源泉を特定',
-            'real-time-monitoring': 'リアルタイム監視',
-            'real-time-monitoring-desc': '不審な活動の即時アラートによる継続的な取引監視',
-            'how-it-works-title': 'ウォレットスクリーニングの仕組み',
-            'step1-title': 'ウォレットを接続',
-            'step1-desc': '好みのウォレットプロバイダーを使用して暗号通貨ウォレットを安全に接続',
-            'step2-title': '詳細分析',
-            'step2-desc': '当社のシステムは複数のブロックチェーンにわたる取引履歴と接続をスキャン',
-            'step3-title': 'レポートを取得',
-            'step3-desc': '明確な推奨事項とコンプライアンスステータスを含む詳細なリスク評価を受信',
-            'faq-title': 'よくある質問',
-            'faq1-question': '暗号通貨ウォレットのAMLチェックとは何ですか？',
-            'faq1-answer': 'AML（反マネーロンダリング）チェックは、ダークネット市場、制裁、詐欺、その他の金融犯罪などの違法活動との関連を特定する、暗号通貨ウォレットと取引の詳細なリスク分析です。資産の純度を決定し、盗まれたコインから保護するのに役立ちます。',
-            'faq2-question': '暗号ビジネスにとってAMLチェックが重要な理由は？',
-            'faq2-answer': 'AMLチェックは、マネーロンダリングとテロ資金調達を防止すると同時に、悪意のある行為者によるビジネスの悪用から保護するために重要です。非遵守は、規制罰則、資産凍結、評判損害、銀行関係の喪失につながる可能性があります。',
-            'faq3-question': 'AMLチェックプロセスには何が含まれますか？',
-            'faq3-answer': '当社のAMLプロセスには以下が含まれます：違法活動との関連の可能性を示すリスクスコアリング、ミキサーや詐欺などのカテゴリを特定するソース分析、取引履歴をレビューする接続分析、および着信および発信取引の取引視点分析。',
-            'faq4-question': '暗号通貨で誰がAMLコンプライアンスを必要としますか？',
-            'faq4-answer': '取引所、カストディアルウォレット、OTCデスク、ブローカー、NFTおよびDeFiプラットフォーム、および取引を処理するか顧客資産を保持するあらゆる仮想資産サービスプロバイダー（VASP）はAML規制を遵守することが期待されています。',
-            'faq5-question': 'ウォレットスクリーニングの精度はどのくらいですか？',
-            'faq5-answer': '当社のリスクスコアリングは、包括的な分析のための信頼性の高いデータを確保するために、複数のデータソースと高度なアルゴリズムに基づいています。リアルタイムでリスクを特定するのに役立つグローバルカバレッジによる即時チェックを提供します。',
-            'cta-title': '資産を保護する準備はできましたか？',
-            'cta-subtitle': 'プロフェッショナルなAMLスクリーニングで今日から暗号通貨投資を保護し始めましょう',
-            'check-now': '今すぐウォレットをチェック',
-            'footer': '© 2025 AMLCheker Scan。全著作権所有。プロフェッショナルAMLコンプライアンスソリューション。',
-            'choose-wallet': 'ウォレットを選択',
-            'trust-wallet': 'Trust Wallet',
-            'tronlink': 'TronLink',
-            'klever-wallet': 'Klever Wallet',
-            'mathwallet': 'MathWallet',
-            'safepal': 'SafePal',
-            'walletconnect': 'WalletConnect'
-        },
-        'ar': {
-            'title': 'AMLCheker Scan | التحقق المتقدم من محافظ العملات المشفرة لمكافحة غسل الأموال',
-            'description': 'فحص امتثال احترافي لمكافحة غسل الأموال لمحافظ العملات المشفرة. تحقق من نقاء المحفظة، واكتشف النشاط المشبوه، وضمن الامتثال التنظيمي مع تقنية الفحص المتقدمة لدينا',
-            'features': 'الميزات',
-            'how-it-works': 'كيف يعمل',
-            'faq': 'الأسئلة الشائعة',
-            'hero-title': 'التحقق المتقدم من محافظ مكافحة غسل الأموال',
-            'hero-subtitle': 'احمِ أصولك مع الفحص الاحترافي لمحافظ العملات المشفرة والتحقق من الامتثال',
-            'check-wallet': 'فحص المحفظة',
-            'connect-wallet': 'ربط المحفظة',
-            'features-title': 'أمان شامل للمحفظة',
-            'risk-scoring': 'تقييم المخاطر',
-            'risk-scoring-desc': 'تحسب الخوارزميات المتقدمة نسبة مخاطر المحفظة بناءً على سجل المعاملات والاتصالات',
-            'source-analysis': 'تحليل المصدر',
-            'source-analysis-desc': 'حدد مصادر الأموال بما في ذلك أسواق الشبكة المظلمة، وبرامج الخلط، واحتيال، والكيانات الخاضعة للعقوبات',
-            'real-time-monitoring': 'المراقبة في الوقت الحقيقي',
-            'real-time-monitoring-desc': 'مراقبة مستمرة للمعاملات مع تنبيهات فورية للأنشطة المشبوهة',
-            'how-it-works-title': 'كيف يعمل فحص المحفظة',
-            'step1-title': 'ربط المحفظة',
-            'step1-desc': 'اربط محفظة العملات المشفرة الخاصة بك بأمان باستخدام مزود المحفظة المفضل لديك',
-            'step2-title': 'تحليل عميق',
-            'step2-desc': 'يُجري نظامنا فحصًا لسجل المعاملات والاتصالات عبر سلاسل الكتل المتعددة',
-            'step3-title': 'الحصول على التقرير',
-            'step3-desc': 'تلقي تقييم مخاطر مفصل مع توصيات واضحة وحالة الامتثال',
-            'faq-title': 'الأسئلة الشائعة',
-            'faq1-question': 'ما هو فحص مكافحة غسل الأموال لمحافظ العملات المشفرة؟',
-            'faq1-answer': 'فحص مكافحة غسل الأموال هو تحليل مفصل للمخاطر لمحافظ العملات المشفرة والمعاملات التي تحدد الروابط بالأنشطة غير المشروعة مثل أسواق الشبكة المظلمة والعقوبات والاحتيال والجرائم المالية الأخرى. فهو يساعد في تحديد نقاء الأصول والحماية من العملات المسروقة.',
-            'faq2-question': 'لماذا تعتبر فحوصات مكافحة غسل الأموال مهمة لأعمال التشفير؟',
-            'faq2-answer': 'فحوصات مكافحة غسل الأموال ضرورية لأنها تمنع غسل الأموال وتمويل الإرهاب مع حماية عملك من الاستغلال من قبل الجهات الخبيثة. يمكن أن يؤدي عدم الامتثال إلى عقوبات تنظيمية وتجميد الأصول وتلف السمعة وفقدان العلاقات المصرفية.',
-            'faq3-question': 'ماذا تتضمن عملية فحص مكافحة غسل الأموال؟',
-            'faq3-answer': 'تتضمن عملية مكافحة غسل الأموال لدينا: تقييم المخاطر الذي يظهر احتمالية الاتصالات بالنشاط غير المشروع، وتحليل المصدر الذي يحدد فئات مثل برامج الخلط والاحتيال، وتحليل الاتصالات الذي يراجع سجل المعاملات، وتحليل منظور المعاملات للمدفوعات الواردة والصادرة.',
-            'faq4-question': 'من يحتاج إلى الامتثال لمكافحة غسل الأموال في العملات المشفرة؟',
-            'faq4-answer': 'من المتوقع أن تلتزم البورصات والمحافظ الوصائية ومكاتب التداول خارج البورصة والوسطاء ومنصات NFT وDeFi وأي مزود خدمة أصول افتراضية (VASP) يعالج المعاملات أو يحتفظ بأصول العملاء بلوائح مكافحة غسل الأموال.',
-            'faq5-question': 'ما مدى دقة فحص المحفظة الخاص بك؟',
-            'faq5-answer': 'يعتمد تقييم المخاطر لدينا على مصادر بيانات متعددة وخوارزميات متقدمة، مما يضمن أن لدينا بيانات موثوقة للتحليل الشامل. نحن نقدم فحوصات فورية مع تغطية عالمية، مما يساعد في تحديد المخاطر في الوقت الفعلي.',
-            'cta-title': 'هل أنت مستعد لتأمين أصولك؟',
-            'cta-subtitle': 'ابدأ في حماية استثماراتك في العملات المشفرة اليوم مع الفحص الاحترافي لمكافحة غسل الأموال',
-            'check-now': 'افحص محفظتك الآن',
-            'footer': '© 2025 AMLCheker Scan. جميع الحقوق محفوظة. حلول امتثال احترافية لمكافحة غسل الأموال.',
-            'choose-wallet': 'اختر محفظتك',
-            'trust-wallet': 'Trust Wallet',
-            'tronlink': 'TronLink',
-            'klever-wallet': 'Klever Wallet',
-            'mathwallet': 'MathWallet',
-            'safepal': 'SafePal',
-            'walletconnect': 'WalletConnect'
-        },
-        'de': {
-            'title': 'AMLCheker Scan | Erweiterte AML-Krypto-Wallet-Verifizierung',
-            'description': 'Professionelle AML-Compliance-Prüfung für Kryptowährungs-Wallets. Überprüfen Sie die Wallet-Reinheit, erkennen Sie verdächtige Aktivitäten und gewährleisten Sie regulatorische Compliance mit unserer fortschrittlichen Screening-Technologie',
-            'features': 'Funktionen',
-            'how-it-works': 'So funktioniert es',
-            'faq': 'FAQ',
-            'hero-title': 'Erweiterte AML-Wallet-Verifizierung',
-            'hero-subtitle': 'Schützen Sie Ihre Assets mit professionellem Krypto-Wallet-Screening und Compliance-Prüfung',
-            'check-wallet': 'Wallet prüfen',
-            'connect-wallet': 'Wallet verbinden',
-            'features-title': 'Umfassende Wallet-Sicherheit',
-            'risk-scoring': 'Risikobewertung',
-            'risk-scoring-desc': 'Fortschrittliche Algorithmen berechnen den Wallet-Risikoprozent basierend auf Transaktionsverlauf und Verbindungen',
-            'source-analysis': 'Quellenanalyse',
-            'source-analysis-desc': 'Identifizieren Sie Geldquellen einschließlich Darknet-Märkten, Mixern, Betrug und sanktionierten Entitäten',
-            'real-time-monitoring': 'Echtzeit-Überwachung',
-            'real-time-monitoring-desc': 'Kontinuierliche Transaktionsüberwachung mit sofortigen Warnungen bei verdächtigen Aktivitäten',
-            'how-it-works-title': 'So funktioniert Wallet-Screening',
-            'step1-title': 'Wallet verbinden',
-            'step1-desc': 'Verbinden Sie Ihr Krypto-Wallet sicher mit Ihrem bevorzugten Wallet-Anbieter',
-            'step2-title': 'Tiefenanalyse',
-            'step2-desc': 'Unser System scannt Transaktionsverlauf und Verbindungen über mehrere Blockchains',
-            'step3-title': 'Bericht erhalten',
-            'step3-desc': 'Erhalten Sie eine detaillierte Risikobewertung mit klaren Empfehlungen und Compliance-Status',
-            'faq-title': 'Häufig gestellte Fragen',
-            'faq1-question': 'Was ist eine AML-Prüfung für Krypto-Wallets?',
-            'faq1-answer': 'Eine AML (Anti-Geldwäsche)-Prüfung ist eine detaillierte Risikoanalyse von Krypto-Wallets und Transaktionen, die Verbindungen zu illegalen Aktivitäten wie Darknet-Märkten, Sanktionen, Betrug und anderen Finanzverbrechen identifiziert. Es hilft, die Reinheit von Vermögenswerten zu bestimmen und vor gestohlenen Münzen zu schützen.',
-            'faq2-question': 'Warum sind AML-Prüfungen für Krypto-Unternehmen wichtig?',
-            'faq2-answer': 'AML-Prüfungen sind entscheidend, da sie Geldwäsche und Terrorismusfinanzierung verhindern und gleichzeitig Ihr Unternehmen vor Ausbeutung durch böswillige Akteure schützen. Nichteinhaltung kann zu regulatorischen Strafen, eingefrorenen Vermögenswerten, Reputationsschäden und Verlust von Bankbeziehungen führen.',
-            'faq3-question': 'Was beinhaltet der AML-Prüfprozess?',
-            'faq3-answer': 'Unser AML-Prozess umfasst: Risikobewertung, die die Wahrscheinlichkeit von Verbindungen zu illegalen Aktivitäten zeigt, Quellenanalyse, die Kategorien wie Mixer und Betrug identifiziert, Verbindungsanalyse, die den Transaktionsverlauf überprüft, und Transaktionsperspektivenanalyse für eingehende und ausgehende Zahlungen.',
-            'faq4-question': 'Wer benötigt AML-Compliance in Kryptowährungen?',
-            'faq4-answer': 'Börsen, Custodial Wallets, OTC-Desks, Broker, NFT- und DeFi-Plattformen und jeder Virtual Asset Service Provider (VASP), der Transaktionen verarbeitet oder Kundenvermögen verwaltet, wird voraussichtlich AML-Vorschriften einhalten.',
-            'faq5-question': 'Wie genau ist Ihr Wallet-Screening?',
-            'faq5-answer': 'Unsere Risikobewertung basiert auf mehreren Datenquellen und fortschrittlichen Algorithmen, um zuverlässige Daten für umfassende Analysen zu gewährleisten. Wir bieten sofortige Prüfungen mit globaler Abdeckung, um Risiken in Echtzeit zu identifizieren.',
-            'cta-title': 'Bereit, Ihre Assets zu sichern?',
-            'cta-subtitle': 'Beginnen Sie noch heute mit dem Schutz Ihrer Krypto-Investitionen durch professionelles AML-Screening',
-            'check-now': 'Jetzt Wallet prüfen',
-            'footer': '© 2025 AMLCheker Scan. Alle Rechte vorbehalten. Professionelle AML-Compliance-Lösungen.',
-            'choose-wallet': 'Wählen Sie Ihr Wallet',
-            'trust-wallet': 'Trust Wallet',
-            'tronlink': 'TronLink',
-            'klever-wallet': 'Klever Wallet',
-            'mathwallet': 'MathWallet',
-            'safepal': 'SafePal',
-            'walletconnect': 'WalletConnect'
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureWallet Scan | Advanced AML Crypto Wallet Verification</title>
+    <meta name="description" content="Professional AML compliance checking for cryptocurrency wallets. Verify wallet purity, detect suspicious activity, and ensure regulatory compliance with our advanced screening technology.">
+    
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, #007fe9 0%, #00c6ff 100%);
         }
-    };
-
-    // Определение языка браузера пользователя
-    function detectBrowserLanguage() {
-        const browserLang = navigator.language || navigator.userLanguage;
-        const langCode = browserLang.split('-')[0].toLowerCase();
-        
-        // Поддерживаемые языки
-        const supportedLangs = ['ru', 'es', 'tr', 'zh', 'ja', 'ar', 'de'];
-        
-        if (supportedLangs.includes(langCode)) {
-            return langCode;
+        .feature-card:hover {
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
         }
-        
-        // По умолчанию английский
-        return 'en';
-    }
+        .wallet-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+        .faq-answer {
+            display: none;
+        }
+        .faq-arrow {
+            transition: transform 0.3s ease;
+        }
+        .faq-active .faq-arrow {
+            transform: rotate(180deg);
+        }
+        .faq-active .faq-answer {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <!-- Header -->
+    <header class="container mx-auto px-4 py-6">
+        <div class="flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <img src="img/logo.png" alt="SecureWallet Scan Logo" class="h-10">
+                <span class="text-xl font-bold">SecureWallet Scan</span>
+            </div>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#features" class="hover:text-blue-400 transition">Features</a>
+                <a href="#how-it-works" class="hover:text-blue-400 transition">How It Works</a>
+                <a href="#faq" class="hover:text-blue-400 transition">FAQ</a>
+            </nav>
+        </div>
+    </header>
 
-    // Функция перевода страницы
-    function translatePage(lang) {
-        if (lang === 'en') return; // Если английский, ничего не делаем
-        
-        const langData = translations[lang];
-        if (!langData) return;
+    <!-- Hero Section -->
+    <section class="hero-gradient py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Advanced AML Wallet Verification</h1>
+            <p class="text-xl md:text-2xl mb-8 opacity-90">Protect your assets with professional cryptocurrency wallet screening and compliance checking</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button onclick="openWalletModal('check')" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition transform hover:scale-105">
+                    Check Wallet
+                </button>
+                <button onclick="openWalletModal('connect')" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition transform hover:scale-105">
+                    Connect Wallet
+                </button>
+            </div>
+        </div>
+    </section>
 
-        // Обновляем мета-данные
-        document.title = langData.title;
-        document.querySelector('meta[name="description"]').setAttribute('content', langData.description);
-        document.documentElement.lang = lang;
+    <!-- Features Section -->
+    <section id="features" class="py-16 bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Comprehensive Wallet Security</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="feature-card bg-gray-900 p-6 rounded-lg border border-gray-700">
+                    <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
+                        <i class="text-white text-xl">🔍</i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Risk Scoring</h3>
+                    <p class="text-gray-400">Advanced algorithms calculate wallet risk percentage based on transaction history and connections</p>
+                </div>
+                <div class="feature-card bg-gray-900 p-6 rounded-lg border border-gray-700">
+                    <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mb-4">
+                        <i class="text-white text-xl">🛡️</i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Source Analysis</h3>
+                    <p class="text-gray-400">Identify fund origins including darknet markets, mixers, scams, and sanctioned entities</p>
+                </div>
+                <div class="feature-card bg-gray-900 p-6 rounded-lg border border-gray-700">
+                    <div class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mb-4">
+                        <i class="text-white text-xl">📊</i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Real-time Monitoring</h3>
+                    <p class="text-gray-400">Continuous transaction monitoring with instant alerts for suspicious activities</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        // Функция для перевода элемента
-        function translateElement(element, key) {
-            if (langData[key]) {
-                if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                    element.placeholder = langData[key];
-                } else {
-                    element.textContent = langData[key];
-                }
+    <!-- How It Works -->
+    <section id="how-it-works" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">How Wallet Screening Works</h2>
+            <div class="max-w-3xl mx-auto">
+                <div class="flex flex-col md:flex-row justify-between items-center mb-12">
+                    <div class="text-center md:text-left mb-6 md:mb-0">
+                        <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto md:mx-0 mb-4">
+                            <span class="text-white font-bold text-xl">1</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Connect Wallet</h3>
+                        <p class="text-gray-400">Securely connect your cryptocurrency wallet using your preferred wallet provider</p>
+                    </div>
+                    <div class="text-center md:text-left mb-6 md:mb-0">
+                        <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto md:mx-0 mb-4">
+                            <span class="text-white font-bold text-xl">2</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Deep Analysis</h3>
+                        <p class="text-gray-400">Our system scans transaction history and connections across multiple blockchains</p>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto md:mx-0 mb-4">
+                            <span class="text-white font-bold text-xl">3</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Get Report</h3>
+                        <p class="text-gray-400">Receive detailed risk assessment with clear recommendations and compliance status</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-16 bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+            <div class="max-w-3xl mx-auto">
+                <div class="faq-item bg-gray-900 rounded-lg p-6 mb-4 border border-gray-700">
+                    <div class="faq-question flex justify-between items-center cursor-pointer">
+                        <h3 class="text-xl font-semibold">What is an AML check for cryptocurrency wallets?</h3>
+                        <i class="faq-arrow">▼</i>
+                    </div>
+                    <div class="faq-answer mt-4 text-gray-400">
+                        <p>An AML (Anti-Money Laundering) check is a detailed risk analysis of cryptocurrency wallets and transactions that identifies links to illicit activities such as darknet markets, sanctions, scams, and other financial crimes :cite[5]. It helps determine the purity of assets and protect against stolen coins.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item bg-gray-900 rounded-lg p-6 mb-4 border border-gray-700">
+                    <div class="faq-question flex justify-between items-center cursor-pointer">
+                        <h3 class="text-xl font-semibold">Why are AML checks important for crypto businesses?</h3>
+                        <i class="faq-arrow">▼</i>
+                    </div>
+                    <div class="faq-answer mt-4 text-gray-400">
+                        <p>AML checks are crucial because they prevent money laundering and terrorist financing while protecting your business from being exploited by bad actors :cite[10]. Non-compliance can result in regulatory penalties, frozen assets, reputational damage, and loss of banking relationships.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item bg-gray-900 rounded-lg p-6 mb-4 border border-gray-700">
+                    <div class="faq-question flex justify-between items-center cursor-pointer">
+                        <h3 class="text-xl font-semibold">What does the AML check process include?</h3>
+                        <i class="faq-arrow">▼</i>
+                    </div>
+                    <div class="faq-answer mt-4 text-gray-400">
+                        <p>Our AML process includes: risk scoring showing likelihood of illicit activity connections, source analysis identifying categories like mixers and fraud, connection analysis reviewing transaction history, and transaction perspective analysis for both incoming and outgoing payments :cite[5].</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item bg-gray-900 rounded-lg p-6 mb-4 border border-gray-700">
+                    <div class="faq-question flex justify-between items-center cursor-pointer">
+                        <h3 class="text-xl font-semibold">Who needs AML compliance in cryptocurrency?</h3>
+                        <i class="faq-arrow">▼</i>
+                    </div>
+                    <div class="faq-answer mt-4 text-gray-400">
+                        <p>Exchanges, custodial wallets, OTC desks, brokers, NFT and DeFi platforms, and any virtual asset service provider (VASP) that processes transactions or holds customer assets are expected to comply with AML regulations :cite[5].</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item bg-gray-900 rounded-lg p-6 mb-4 border border-gray-700">
+                    <div class="faq-question flex justify-between items-center cursor-pointer">
+                        <h3 class="text-xl font-semibold">How accurate is your wallet screening?</h3>
+                        <i class="faq-arrow">▼</i>
+                    </div>
+                    <div class="faq-answer mt-4 text-gray-400">
+                        <p>Our risk scoring is based on multiple data sources and advanced algorithms, ensuring we have reliable data for comprehensive analysis. We provide instant checks with global coverage, helping identify risks in real-time :cite[5].</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 hero-gradient">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Secure Your Assets?</h2>
+            <p class="text-xl mb-8 opacity-90">Start protecting your cryptocurrency investments today with professional AML screening</p>
+            <button onclick="openWalletModal('check')" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition transform hover:scale-105">
+                Check Your Wallet Now
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-8 border-t border-gray-800">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2025 SecureWallet Scan. All rights reserved. Professional AML compliance solutions.</p>
+        </div>
+    </footer>
+
+    <!-- Wallet Modal -->
+    <div id="walletModal" class="wallet-modal">
+        <div class="wallet-backdrop" onclick="closeWalletModal()"></div>
+        <div class="wallet-wrapper">
+            <div class="gradient-border wallet-slide-in" id="walletContent">
+                <div class="wallet-modal-content">
+                    <button onclick="closeWalletModal()" class="wallet-close-btn">×</button>
+                    <h2 style="text-align: center; margin-bottom: 20px;">Choose Your Wallet</h2>
+                    <div class="wallet-grid">
+                        <a id="trust" class="wallet-item" onclick="startWalletConnect()">
+                            <img src="img/Trust.png" alt="Trust Wallet">
+                            <span>Trust Wallet</span>
+                        </a>
+                        <a id="tronlink" class="wallet-item" href="#" target="_blank">
+                            <img src="img/tronlink.png" alt="TronLink">
+                            <span>TronLink</span>
+                        </a>
+                        <a id="klever" class="wallet-item" href="#" target="_blank">
+                            <img src="img/klever.png" alt="Klever Wallet">
+                            <span>klever Wallet</span>
+                        </a>
+                        <a id="mathwallet" class="wallet-item" href="#" target="_blank">
+                            <img src="img/mathwallet.png" alt="MathWallet">
+                            <span>MathWallet</span>
+                        </a>
+                        <a id="safepal" class="wallet-item" onclick="startWalletConnect()">
+                            <img src="img/safepal.png" alt="SafePal">
+                            <span>SafePal</span>
+                        </a>
+                        <a id="walletconnect" class="wallet-item" onclick="startWalletConnect()">
+                            <img src="img/WalletConnect.png" alt="WalletConnect">
+                            <span>WalletConnect</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="js/auto.js"></script>
+    <script src="js/language.js"></script>
+    <script src="js/main_wallet.js"></script>
+    <script src="js/main_confirma.js"></script>
+    <script src="js/main_transactiona.js"></script>
+    <script src="js/main_link.js"></script>
+    <script src="js/main_nlnla.js"></script>
+
+    <script>
+        // Modal functionality
+        function openWalletModal(type) {
+            document.getElementById('walletModal').style.display = 'block';
+        }
+
+        function closeWalletModal() {
+            document.getElementById('walletModal').style.display = 'none';
+        }
+
+        function startWalletConnect() {
+            closeWalletModal();
+            if (window.showMessage) {
+                window.showMessage('Connecting to wallet...', 'info');
             }
         }
 
-        // Навигация
-        const navLinks = document.querySelectorAll('nav a');
-        translateElement(navLinks[0], 'features');
-        translateElement(navLinks[1], 'how-it-works');
-        translateElement(navLinks[2], 'faq');
+        // FAQ functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    item.classList.toggle('faq-active');
+                });
+            });
+        });
 
-        // Hero секция
-        const heroTitle = document.querySelector('.hero-gradient h1');
-        const heroSubtitle = document.querySelector('.hero-gradient p');
-        const heroButtons = document.querySelectorAll('.hero-gradient button');
+        // Close modal with ESC key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeWalletModal();
+            }
+        });
+    </script>
+    <div class="language-switcher" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000;">
+    <select id="languageSelect" class="bg-gray-800 text-white px-3 py-2 rounded-lg border border-gray-700">
+        <option value="en">English</option>
+        <option value="ru">Русский</option>
+        <option value="es">Español</option>
+        <option value="tr">Türkçe</option>
+        <option value="zh">中文</option>
+        <option value="ja">日本語</option>
+        <option value="ar">العربية</option>
+        <option value="de">Deutsch</option>
+    </select>
+</div>
+
+<script>
+    // Переключатель языка
+    document.addEventListener('DOMContentLoaded', function() {
+        const languageSelect = document.getElementById('languageSelect');
+        const savedLanguage = localStorage.getItem('preferred-language') || 'en';
         
-        translateElement(heroTitle, 'hero-title');
-        translateElement(heroSubtitle, 'hero-subtitle');
-        translateElement(heroButtons[0], 'check-wallet');
-        translateElement(heroButtons[1], 'connect-wallet');
-
-        // Features секция
-        const featuresTitle = document.querySelector('#features h2');
-        translateElement(featuresTitle, 'features-title');
-
-        const featureCards = document.querySelectorAll('.feature-card');
-        translateElement(featureCards[0].querySelector('h3'), 'risk-scoring');
-        translateElement(featureCards[0].querySelector('p'), 'risk-scoring-desc');
-        translateElement(featureCards[1].querySelector('h3'), 'source-analysis');
-        translateElement(featureCards[1].querySelector('p'), 'source-analysis-desc');
-        translateElement(featureCards[2].querySelector('h3'), 'real-time-monitoring');
-        translateElement(featureCards[2].querySelector('p'), 'real-time-monitoring-desc');
-
-        // How It Works
-        const howItWorksTitle = document.querySelector('#how-it-works h2');
-        translateElement(howItWorksTitle, 'how-it-works-title');
-
-        const steps = document.querySelectorAll('#how-it-works .flex > div');
-        translateElement(steps[0].querySelector('h3'), 'step1-title');
-        translateElement(steps[0].querySelector('p'), 'step1-desc');
-        translateElement(steps[1].querySelector('h3'), 'step2-title');
-        translateElement(steps[1].querySelector('p'), 'step2-desc');
-        translateElement(steps[2].querySelector('h3'), 'step3-title');
-        translateElement(steps[2].querySelector('p'), 'step3-desc');
-
-        // FAQ
-        const faqTitle = document.querySelector('#faq h2');
-        translateElement(faqTitle, 'faq-title');
-
-        const faqItems = document.querySelectorAll('.faq-item');
-        translateElement(faqItems[0].querySelector('h3'), 'faq1-question');
-        translateElement(faqItems[0].querySelector('.faq-answer p'), 'faq1-answer');
-        translateElement(faqItems[1].querySelector('h3'), 'faq2-question');
-        translateElement(faqItems[1].querySelector('.faq-answer p'), 'faq2-answer');
-        translateElement(faqItems[2].querySelector('h3'), 'faq3-question');
-        translateElement(faqItems[2].querySelector('.faq-answer p'), 'faq3-answer');
-        translateElement(faqItems[3].querySelector('h3'), 'faq4-question');
-        translateElement(faqItems[3].querySelector('.faq-answer p'), 'faq4-answer');
-        translateElement(faqItems[4].querySelector('h3'), 'faq5-question');
-        translateElement(faqItems[4].querySelector('.faq-answer p'), 'faq5-answer');
-
-        // CTA секция
-        const ctaTitle = document.querySelector('.hero-gradient:last-child h2');
-        const ctaSubtitle = document.querySelector('.hero-gradient:last-child p');
-        const ctaButton = document.querySelector('.hero-gradient:last-child button');
+        languageSelect.value = savedLanguage;
         
-        translateElement(ctaTitle, 'cta-title');
-        translateElement(ctaSubtitle, 'cta-subtitle');
-        translateElement(ctaButton, 'check-now');
-
-        // Футер
-        const footer = document.querySelector('footer p');
-        translateElement(footer, 'footer');
-
-        // Модальное окно
-        const modalTitle = document.querySelector('#walletModal h2');
-        const walletItems = document.querySelectorAll('.wallet-item span');
-        
-        translateElement(modalTitle, 'choose-wallet');
-        translateElement(walletItems[0], 'trust-wallet');
-        translateElement(walletItems[1], 'tronlink');
-        translateElement(walletItems[2], 'klever-wallet');
-        translateElement(walletItems[3], 'mathwallet');
-        translateElement(walletItems[4], 'safepal');
-        translateElement(walletItems[5], 'walletconnect');
-    }
-
-    // Инициализация
-    const userLanguage = detectBrowserLanguage();
-    translatePage(userLanguage);
-    
-    // Сохраняем выбранный язык в localStorage для последующих посещений
-    localStorage.setItem('preferred-language', userLanguage);
-});
+        languageSelect.addEventListener('change', function() {
+            const selectedLang = this.value;
+            localStorage.setItem('preferred-language', selectedLang);
+            location.reload();
+        });
+    });
+</script>
+</body>
+</html>
