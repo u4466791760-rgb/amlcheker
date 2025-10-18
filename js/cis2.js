@@ -1,20 +1,16 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Список кодов стран СНГ (ISO 3166-1 alpha-2)
-    const cisCountries = ['RU', 'UA', 'BY', 'KZ', 'UZ', 'TM', 'KG', 'TJ', 'AM', 'AZ', 'MD'];
+    // Список языков стран СНГ
+    const cisLanguages = ['ru', 'uk', 'be', 'kk', 'uz', 'tk', 'ky', 'tg', 'hy', 'az', 'ro'];
 
-    // Функция для получения геолокации
-    function checkGeoLocation() {
-        fetch('https://ipapi.co/json/')
-            .then(response => response.json())
-            .then(data => {
-                const countryCode = data.country_code;
-                if (cisCountries.includes(countryCode)) {
-                    showNotification();
-                }
-            })
-            .catch(error => {
-                console.error('Ошибка при получении геолокации:', error);
-            });
+    // Функция для проверки языка браузера
+    function checkBrowserLanguage() {
+        // Получаем основной язык браузера
+        const userLanguage = navigator.language || navigator.languages[0];
+        const languageCode = userLanguage.split('-')[0]; // Извлекаем базовый код языка (например, 'ru' из 'ru-RU')
+        
+        if (cisLanguages.includes(languageCode)) {
+            showNotification();
+        }
     }
 
     // Функция для отображения уведомления
@@ -37,6 +33,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.appendChild(notification);
     }
 
-    // Запуск проверки геолокации
-    checkGeoLocation();
+    // Запуск проверки языка
+    checkBrowserLanguage();
 });
