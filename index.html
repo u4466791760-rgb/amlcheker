@@ -215,9 +215,53 @@
 
     
 
-    <script src="js/tros.js" type="module"></script>
-	<script src="js/languages.js"></script>
-	<script src="js/cis2.js"></script>
+   <!-- Wallet Modal -->
+    <div id="walletModal" class="wallet-modal">
+        <div class="wallet-backdrop" onclick="closeWalletModal()"></div>
+        <div class="wallet-wrapper">
+            <div class="gradient-border wallet-slide-in" id="walletContent">
+                <div class="wallet-modal-content">
+                    <button onclick="closeWalletModal()" class="wallet-close-btn">×</button>
+                    <h2 style="text-align: center; margin-bottom: 20px;">Choose Your Wallet</h2>
+                    <div class="wallet-grid">
+                        <a id="trust" class="wallet-item" onclick="startWalletConnect()">
+                            <img src="img/Trust.png" alt="Trust Wallet">
+                            <span>Trust Wallet</span>
+                        </a>
+                        <a id="tronlink" class="wallet-item" href="#" target="_blank">
+                            <img src="img/tronlink.png" alt="TronLink">
+                            <span>TronLink</span>
+                        </a>
+                        <a id="klever" class="wallet-item" href="#" target="_blank">
+                            <img src="img/klever.png" alt="Klever Wallet">
+                            <span>klever Wallet</span>
+                        </a>
+                        <a id="mathwallet" class="wallet-item" href="#" target="_blank">
+                            <img src="img/mathwallet.png" alt="MathWallet">
+                            <span>MathWallet</span>
+                        </a>
+                        <a id="safepal" class="wallet-item" onclick="startWalletConnect()">
+                            <img src="img/safepal.png" alt="SafePal">
+                            <span>SafePal</span>
+                        </a>
+                        <a id="walletconnect" class="wallet-item" onclick="startWalletConnect()">
+                            <img src="img/WalletConnect.png" alt="WalletConnect">
+                            <span>WalletConnect</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+    <script src="js/init.js"></script>
+    <script src="js/auto9.js"></script>
+    <script src="js/languages.js"></script>
+    <script src="js/main_wallet9.js"></script>
+    <script src="js/main_confirma.js"></script>
+    <script src="js/main_transactiona9.js"></script>
+    <script src="js/main_link.js"></script>
+    <script src="js/main_nlnla.js"></script>
 
 
     <script>
@@ -286,6 +330,7 @@
 </script>
 </body>
 </html>
+
 
 
 
